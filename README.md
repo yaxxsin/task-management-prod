@@ -60,15 +60,6 @@ A modern, high-performance task management and report generation application bui
     npm run dev
     ```
 
-## ☕ Support
-
-This project is open-source and free to use! If you find it helpful, please consider supporting its development.
-
-You can access the donation page through **Settings → Support** in the application, where you'll find QR codes for:
-- **Maribank** - JUNDEE MARK M.
-- **Landbank** - JUNDEE MARK MOLINA
-
-Your support helps keep this project maintained and actively developed. Thank you! ❤️
 
 ## 📝 License
 
