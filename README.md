@@ -41,7 +41,7 @@ A modern, high-performance task management and report generation application bui
 
 1.  **Clone the repository**
     ```bash
-    git clone https://github.com/yourusername/ar-generator-react.git
+    https://github.com/yaxxsin/task-management-prod.git
     ```
 
 2.  **Install dependencies**
