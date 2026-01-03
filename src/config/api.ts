@@ -1,5 +1,5 @@
 // API Configuration
-const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:3001';
+const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:9008';
 
 export const API_ENDPOINTS = {
     // Auth endpoints

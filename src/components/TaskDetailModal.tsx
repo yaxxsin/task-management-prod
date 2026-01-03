@@ -45,6 +45,7 @@ import RelationshipMenu from './RelationshipMenu';
 import TagMenu from './TagMenu';
 import ActivityPanel from './ActivityPanel';
 import '../styles/TaskDetailModal.css';
+import { API_ENDPOINTS } from '../config/api';
 
 interface TaskDetailModalProps {
     taskId: string;
@@ -184,7 +185,7 @@ const TaskDetailModal: React.FC<TaskDetailModalProps> = ({ taskId, onClose, onTa
 
             try {
                 // Fetch space members
-                const spaceRes = await fetch(`http://localhost:3001/api/resource/members?resourceType=space&resourceId=${task.spaceId}`, {
+                const spaceRes = await fetch(`${API_ENDPOINTS.RESOURCE_MEMBERS}?resourceType=space&resourceId=${task.spaceId}`, {
                     headers: { 'Authorization': `Bearer ${token}` }
                 });
                 if (spaceRes.ok) {
@@ -193,7 +194,7 @@ const TaskDetailModal: React.FC<TaskDetailModalProps> = ({ taskId, onClose, onTa
 
                 // If task is in a list, also fetch list members
                 if (task.listId) {
-                    const listRes = await fetch(`http://localhost:3001/api/resource/members?resourceType=list&resourceId=${task.listId}`, {
+                    const listRes = await fetch(`${API_ENDPOINTS.RESOURCE_MEMBERS}?resourceType=list&resourceId=${task.listId}`, {
                         headers: { 'Authorization': `Bearer ${token}` }
                     });
                     if (listRes.ok) {

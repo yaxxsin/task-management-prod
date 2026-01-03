@@ -35,12 +35,8 @@ const ProfileDropdown: React.FC<ProfileDropdownProps> = ({ onOpenSettings, posit
         .slice(0, 2);
 
     const handleLogout = () => {
+        // All data cleanup is handled automatically in useAuthStore.logout()
         logout();
-        localStorage.clear();
-        const req = indexedDB.deleteDatabase('ar-generator-db');
-        req.onsuccess = () => window.location.reload();
-        req.onerror = () => window.location.reload();
-        req.onblocked = () => window.location.reload();
     };
 
     return (
