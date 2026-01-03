@@ -1,0 +1,38 @@
+/* Row Hover Actions */
+.row-hover-actions {
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    opacity: 0;
+    transition: opacity 0.2s;
+    background: var(--bg-surface); /* Ensure background handles overlap */
+    padding-left: 8px; /* Fade effect space */
+}
+
+.task-item-row:hover .row-hover-actions {
+    opacity: 1;
+}
+
+.row-action-btn {
+    width: 24px;
+    height: 24px;
+    border-radius: 6px;
+    border: 1px solid var(--border);
+    background: var(--bg-surface);
+    color: var(--text-secondary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.row-action-btn:hover {
+    background: var(--bg-hover);
+    color: var(--primary);
+    border-color: var(--primary);
+}

@@ -1,0 +1,360 @@
+.relationship-menu-container {
+    width: 320px;
+    background: var(--bg-surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    box-shadow: var(--shadow-xl);
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    position: relative;
+    z-index: 5000;
+}
+
+.relationship-menu-container.list-mode {
+    width: 380px;
+    /* Slightly narrower for better screen fit */
+}
+
+.relationship-modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(15, 23, 42, 0.6);
+    backdrop-filter: blur(4px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+    animation: fadeInModal 0.2s ease-out;
+}
+
+@keyframes fadeInModal {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+.relationship-menu-container.is-modal {
+    width: 600px;
+    max-width: 90vw;
+    height: auto;
+    max-height: 85vh;
+    animation: slideUpModal 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    background: var(--bg-surface);
+    border-radius: 16px;
+    box-shadow: var(--shadow-2xl);
+    overflow-y: auto;
+}
+
+@keyframes slideUpModal {
+    from {
+        transform: translateY(20px);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.relationship-menu-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.relationship-menu-header h3 {
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--text-main);
+}
+
+.relationship-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+    position: relative;
+}
+
+.relationship-grid.inline {
+    width: 100%;
+    margin: 0;
+}
+
+.rel-grid-btn {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    padding: 20px 10px;
+    background: var(--bg-surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.rel-grid-btn:hover {
+    border-color: var(--primary);
+    background: var(--bg-hover);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+}
+
+.rel-icon-box {
+    width: 44px;
+    height: 44px;
+    background: var(--bg-hover);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-secondary);
+    transition: all 0.2s;
+}
+
+.rel-grid-btn:hover .rel-icon-box {
+    background: var(--bg-active);
+    color: var(--primary);
+}
+
+.rel-grid-btn span {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--text-secondary);
+    transition: all 0.2s;
+}
+
+.rel-grid-btn:hover span {
+    color: var(--primary);
+}
+
+/* List View Styles */
+.relationship-list-view {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 4px;
+}
+
+.rel-list-header {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.header-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.rel-list-header h3 {
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--text-main);
+    margin: 0;
+}
+
+.rel-list-header p {
+    font-size: 13px;
+    color: var(--text-secondary);
+    margin: 0;
+    line-height: 1.4;
+}
+
+.rel-list-sections {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.rel-section {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.sec-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--text-main);
+}
+
+.sec-content {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding-left: 26px;
+    border-left: 2px solid var(--border);
+    margin-left: 7px;
+}
+
+.rel-item-pill {
+    padding: 6px 12px;
+    background: var(--bg-hover);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    font-size: 13px;
+    color: var(--text-main);
+    font-weight: 500;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.2s;
+}
+
+.rel-item-pill:hover {
+    border-color: var(--primary);
+}
+
+.rel-item-name {
+    flex: 1;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.remove-rel-btn {
+    opacity: 0;
+    visibility: hidden;
+    background: transparent;
+    border: none;
+    color: var(--text-tertiary);
+    cursor: pointer;
+    padding: 2px;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s;
+}
+
+.rel-item-pill:hover .remove-rel-btn {
+    opacity: 1;
+    visibility: visible;
+}
+
+.remove-rel-btn:hover {
+    background: rgba(239, 68, 68, 0.1);
+    color: #ef4444;
+}
+
+.add-rel-inline-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: transparent;
+    border: none;
+    color: var(--text-tertiary);
+    font-size: 13px;
+    font-weight: 500;
+    cursor: pointer;
+    padding: 4px 0;
+    transition: color 0.2s;
+}
+
+.add-rel-inline-btn:hover {
+    color: var(--primary);
+}
+
+/* Picker & Inline Overlays */
+.relationship-menu-context.inline {
+    background: transparent;
+    padding: 0;
+    width: 100%;
+}
+
+.picker-overlay {
+    position: absolute;
+    top: 0;
+    left: 100%;
+    margin-left: 8px;
+    z-index: 5500;
+}
+
+.inline-picker-wrapper {
+    width: 100%;
+}
+
+.inline-picker-container {
+    background: var(--bg-surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    animation: fadeInRel 0.2s ease-out;
+}
+
+@keyframes fadeInRel {
+    from {
+        opacity: 0;
+        transform: translateY(4px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.inline-picker-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 12px;
+    margin-bottom: 4px;
+}
+
+.picker-title {
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--text-main);
+    text-transform: capitalize;
+}
+
+.back-btn {
+    background: transparent;
+    border: none;
+    color: var(--primary);
+    font-size: 13px;
+    font-weight: 700;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.back-btn:hover {
+    text-decoration: underline;
+}
+
+/* Ensure TaskPicker and DocPicker fit within the inline container */
+.inline-picker-container .task-picker-popover {
+    position: static;
+    width: 100%;
+    box-shadow: none;
+    border: none;
+    background: transparent;
+    padding: 0;
+}
+
+.inline-picker-container .task-picker-list {
+    max-height: 300px;
+}

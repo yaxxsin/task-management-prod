@@ -1,0 +1,246 @@
+.share-modal {
+    width: 500px;
+    max-width: 90vw;
+    background: var(--bg-surface);
+    border-radius: 12px;
+    box-shadow: var(--shadow-xl);
+    border: 1px solid var(--border);
+    animation: modalAppear 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+    overflow: hidden;
+    color: var(--text-main);
+}
+
+.share-header {
+    padding: 16px 20px;
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.share-title-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 4px;
+}
+
+.share-title {
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.share-subtitle {
+    font-size: 13px;
+    color: var(--text-secondary);
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.close-share-btn {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    color: var(--text-tertiary);
+    padding: 4px;
+    border-radius: 4px;
+}
+
+.close-share-btn:hover {
+    background: var(--bg-hover);
+    color: var(--text-main);
+}
+
+.share-body {
+    padding: 20px;
+}
+
+.invite-section {
+    margin-bottom: 24px;
+}
+
+.invite-input-row {
+    display: flex;
+    gap: 8px;
+}
+
+.invite-input {
+    flex: 1;
+    padding: 8px 12px;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    background: var(--bg-main);
+    color: var(--text-main);
+    font-size: 14px;
+}
+
+.invite-input:focus {
+    border-color: var(--primary);
+    outline: none;
+}
+
+.invite-btn {
+    background: #0ea5e9;
+    /* Light blue like screenshot */
+    color: white;
+    border: none;
+    border-radius: 6px;
+    padding: 8px 16px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.invite-btn:hover {
+    background: #0284c7;
+}
+
+.link-section {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 24px;
+}
+
+.link-left {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.copy-link-btn {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 12px;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    background: var(--bg-main);
+    color: var(--text-main);
+    font-size: 13px;
+    cursor: pointer;
+}
+
+.copy-link-btn:hover {
+    background: var(--bg-hover);
+}
+
+.permission-dropdown-btn {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 10px;
+    border: none;
+    background: transparent;
+    color: var(--text-secondary);
+    font-size: 13px;
+    cursor: pointer;
+}
+
+.permission-dropdown-btn:hover {
+    background: var(--bg-hover);
+    border-radius: 4px;
+}
+
+.members-section h4 {
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--text-secondary);
+    text-transform: uppercase;
+    margin-bottom: 12px;
+}
+
+.member-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.member-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.member-info {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.member-avatar {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: 600;
+    font-size: 14px;
+}
+
+.member-details {
+    display: flex;
+    flex-direction: column;
+}
+
+.member-name {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--text-main);
+}
+
+.member-email {
+    font-size: 12px;
+    color: var(--text-secondary);
+}
+
+.member-role {
+    font-size: 13px;
+    color: var(--text-secondary);
+}
+
+.share-footer {
+    padding: 12px 20px;
+    background: var(--bg-side);
+    border-top: 1px solid var(--border);
+    display: flex;
+    justify-content: center;
+}
+
+.make-private-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--text-secondary);
+    font-size: 13px;
+    font-weight: 500;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 8px;
+    width: 100%;
+    justify-content: center;
+    border-radius: 6px;
+}
+
+.make-private-btn:hover {
+    background: rgba(0, 0, 0, 0.05);
+}
+
+/* Context Menu Custom Style */
+.context-menu-share-btn {
+    margin-top: 8px;
+    background: #0ea5e9 !important;
+    color: white !important;
+    justify-content: center !important;
+    font-weight: 600 !important;
+}
+
+.context-menu-share-btn:hover {
+    background: #0284c7 !important;
+}

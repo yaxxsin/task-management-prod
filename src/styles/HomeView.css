@@ -1,0 +1,357 @@
+.home-container {
+    padding: 32px 48px;
+    height: 100%;
+    overflow-y: auto;
+    background-color: var(--bg-main);
+}
+
+.home-header {
+    margin-bottom: 32px;
+}
+
+.home-header h1 {
+    font-family: 'Outfit', sans-serif;
+    font-size: 32px;
+    font-weight: 700;
+    color: var(--text-main);
+    margin-bottom: 8px;
+}
+
+.home-header p {
+    color: var(--text-secondary);
+    font-size: 16px;
+}
+
+.home-content-grid {
+    display: grid;
+    grid-template-columns: 1fr 340px;
+    gap: 32px;
+    align-items: flex-start;
+}
+
+.home-section {
+    margin-bottom: 40px;
+}
+
+.section-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 16px;
+}
+
+.title-group {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: var(--text-main);
+}
+
+.title-group h3 {
+    font-size: 18px;
+    font-weight: 700;
+}
+
+.text-btn {
+    background: none;
+    border: none;
+    color: var(--primary);
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+/* Recents Grid */
+.recents-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 16px;
+}
+
+.recent-card {
+    background: var(--bg-surface);
+    padding: 16px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    border: 1px solid var(--border);
+    cursor: pointer;
+    transition: all 0.2s ease;
+    position: relative;
+}
+
+.recent-card:hover {
+    border-color: var(--primary);
+    box-shadow: var(--shadow-sm);
+}
+
+.recent-icon {
+    width: 32px;
+    height: 32px;
+    background: var(--bg-hover);
+    color: var(--primary);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.recent-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.recent-name {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--text-main);
+}
+
+.recent-meta {
+    font-size: 12px;
+    color: var(--text-secondary);
+}
+
+.star-icon {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    color: var(--border-strong);
+}
+
+/* My Work Tabs */
+.work-tabs {
+    display: flex;
+    background: var(--bg-hover);
+    padding: 2px;
+    border-radius: 8px;
+}
+
+.work-tabs .tab {
+    padding: 4px 12px;
+    border: none;
+    background: transparent;
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--text-secondary);
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.work-tabs .tab.active {
+    background: var(--bg-surface);
+    color: var(--text-main);
+    box-shadow: var(--shadow-sm);
+}
+
+/* Work Groups */
+.work-groups {
+    background: var(--bg-surface);
+    border-radius: 12px;
+    border: 1px solid var(--border);
+    padding: 8px;
+}
+
+.work-group {
+    margin-bottom: 8px;
+}
+
+.group-header {
+    padding: 12px 16px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--text-main);
+    text-transform: uppercase;
+    letter-spacing: 0.025em;
+}
+
+.group-header .count {
+    background: var(--bg-hover);
+    color: var(--text-secondary);
+    padding: 2px 8px;
+    border-radius: 999px;
+    font-size: 11px;
+}
+
+.home-task-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 16px;
+    border-radius: 8px;
+    transition: background 0.1s ease;
+    cursor: pointer;
+}
+
+.home-task-item:hover {
+    background: var(--bg-hover);
+}
+
+.task-left {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 14px;
+    color: var(--text-main);
+}
+
+.checkbox {
+    width: 18px;
+    height: 18px;
+    border: 2px solid var(--border-strong);
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease;
+}
+
+.checkbox.checked {
+    background: var(--primary);
+    border-color: var(--primary);
+    color: white;
+}
+
+.agenda-event {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    cursor: pointer;
+    padding: 4px 8px;
+    margin-left: -8px;
+    border-radius: 6px;
+    transition: background 0.2s ease;
+}
+
+.agenda-event:hover {
+    background: var(--bg-hover);
+}
+
+.priority-tag {
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    padding: 2px 8px;
+    border-radius: 4px;
+}
+
+.priority-tag.urgent {
+    background: #fee2e2;
+    color: #b91c1c;
+}
+
+.priority-tag.high {
+    background: #ffedd5;
+    color: #c2410c;
+}
+
+.priority-tag.medium {
+    background: #fef9c3;
+    color: #a16207;
+}
+
+.priority-tag.low {
+    background: #f0fdf4;
+    color: #15803d;
+}
+
+.date.overdue {
+    color: #ef4444;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.empty-tasks,
+.empty-agenda {
+    padding: 24px;
+    text-align: center;
+    color: var(--text-secondary);
+    font-size: 14px;
+}
+
+/* Agenda Card */
+.agenda-card {
+    background: var(--bg-surface);
+    border-radius: 12px;
+    border: 1px solid var(--border);
+    padding: 20px;
+    display: flex;
+    gap: 20px;
+}
+
+.agenda-date {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-width: 50px;
+}
+
+.day-name {
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: #ef4444;
+}
+
+.day-num {
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--text-main);
+}
+
+.agenda-events {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+/* Agenda events are now styled above */
+
+/* Time Tracking Card */
+.time-tracking-card {
+    background: var(--bg-surface);
+    border-radius: 12px;
+    border: 1px solid var(--border);
+    padding: 20px;
+}
+
+.time-stat {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 12px;
+}
+
+.time-stat .label {
+    font-size: 14px;
+    color: var(--text-secondary);
+}
+
+.time-stat .value {
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--text-main);
+}
+
+.btn-track {
+    width: 100%;
+    padding: 10px;
+    background: var(--primary);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 14px;
+    cursor: pointer;
+    margin-top: 8px;
+    transition: background 0.2s ease;
+}
+
+.btn-track:hover {
+    background: var(--primary-hover);
+}

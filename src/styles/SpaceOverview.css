@@ -1,0 +1,225 @@
+.space-overview {
+    padding: 24px;
+    height: 100%;
+    overflow-y: auto;
+    background-color: var(--bg-main);
+}
+
+.overview-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 24px;
+}
+
+.header-controls {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.refresh-info {
+    font-size: 12px;
+    color: var(--text-secondary);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.auto-refresh-badge {
+    color: var(--primary);
+    background: color-mix(in srgb, var(--primary) 10%, transparent);
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 12px;
+    font-weight: 500;
+}
+
+.widgets-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    margin-bottom: 24px;
+}
+
+.overview-card {
+    background: var(--bg-main);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    min-height: 250px;
+}
+
+.card-header {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--text-main);
+    margin-bottom: 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.card-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Empty State Styling */
+.empty-card-state {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: var(--text-secondary);
+}
+
+.empty-icon {
+    width: 48px;
+    height: 48px;
+    margin-bottom: 16px;
+    color: var(--text-secondary);
+    opacity: 0.5;
+}
+
+.empty-text {
+    font-size: 13px;
+    margin-bottom: 16px;
+    max-width: 200px;
+}
+
+.btn-card-action {
+    background: var(--primary);
+    color: white;
+    border: none;
+    border-radius: 6px;
+    padding: 8px 16px;
+    font-size: 13px;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+.btn-card-action:hover {
+    opacity: 0.9;
+}
+
+/* Specific Card Styles */
+.recent-list-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 0;
+    font-size: 13px;
+    color: var(--text-main);
+    border-bottom: 1px solid transparent;
+    /* Placeholder */
+}
+
+.recent-list-icon {
+    color: var(--text-secondary);
+}
+
+.recent-list-location {
+    color: var(--text-secondary);
+    font-size: 12px;
+}
+
+/* Full Width Sections */
+.full-width-section {
+    grid-column: span 3;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.section-row {
+    display: flex;
+    gap: 24px;
+}
+
+.lists-table-card {
+    grid-column: span 3;
+    min-height: auto;
+}
+
+.lists-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.lists-table th {
+    text-align: left;
+    padding: 12px;
+    font-size: 12px;
+    color: var(--text-secondary);
+    border-bottom: 1px solid var(--border);
+    font-weight: 500;
+}
+
+.lists-table td {
+    padding: 12px;
+    font-size: 13px;
+    border-bottom: 1px solid var(--border);
+    color: var(--text-main);
+}
+
+.list-progress-bar {
+    width: 100px;
+    height: 6px;
+    background: var(--bg-side);
+    border-radius: 3px;
+    overflow: hidden;
+    position: relative;
+}
+
+.list-progress-fill {
+    height: 100%;
+    background: var(--primary);
+}
+
+.workload-chart-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+    height: 200px;
+}
+
+.pie-chart-legend {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-left: 24px;
+}
+
+.legend-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 12px;
+    color: var(--text-secondary);
+}
+
+.legend-color {
+    width: 8px;
+    height: 8px;
+    border-radius: 2px;
+}
+
+.drop-zone {
+    border: 2px dashed var(--border);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    color: var(--text-secondary);
+    font-size: 13px;
+    padding: 32px;
+    background: var(--bg-side);
+}

@@ -1,0 +1,103 @@
+.ai-content-wrapper {
+    display: flex;
+    flex: 1;
+    overflow: hidden;
+    position: relative;
+    height: 100%;
+    /* Ensure it fills available space */
+}
+
+.ai-main-area {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    overflow: hidden;
+    position: relative;
+}
+
+.ai-history-sidebar {
+    width: 240px;
+    border-right: 1px solid var(--border);
+    background: var(--bg-side);
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+    flex-shrink: 0;
+    transition: width 0.3s ease;
+}
+
+.ai-history-sidebar h3 {
+    padding: 16px;
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--text-secondary);
+    margin: 0;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.ai-history-sidebar ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.ai-history-sidebar li {
+    padding: 12px 16px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 13px;
+    color: var(--text-main);
+    transition: background 0.2s;
+    justify-content: space-between;
+    border-bottom: 1px solid transparent;
+}
+
+.ai-history-sidebar li:hover {
+    background: var(--bg-hover);
+    border-bottom-color: var(--border);
+}
+
+.ai-history-sidebar li span {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    flex: 1;
+}
+
+.ai-history-sidebar li button {
+    background: transparent;
+    border: none;
+    color: var(--text-tertiary);
+    cursor: pointer;
+    padding: 4px;
+    display: flex;
+    opacity: 0;
+    transition: opacity 0.2s;
+    border-radius: 4px;
+}
+
+.ai-history-sidebar li:hover button {
+    opacity: 1;
+}
+
+.ai-history-sidebar li button:hover {
+    background: var(--bg-input);
+    color: var(--text-error);
+}
+
+.no-history {
+    padding: 20px;
+    text-align: center;
+    color: var(--text-tertiary);
+    font-size: 13px;
+    font-style: italic;
+    margin-top: 40px;
+}
+
+.icon-btn-ghost.active {
+    background: var(--bg-hover);
+    color: var(--primary);
+}

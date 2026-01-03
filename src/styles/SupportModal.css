@@ -1,0 +1,223 @@
+.support-modal {
+    position: relative;
+    background: var(--bg-primary);
+    border-radius: 16px;
+    width: 90%;
+    max-width: 900px;
+    max-height: 90vh;
+    overflow-y: auto;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    animation: slideUp 0.3s ease-out;
+}
+
+.support-content {
+    padding: 48px 40px;
+}
+
+.support-header {
+    text-align: center;
+    margin-bottom: 48px;
+}
+
+.support-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 96px;
+    height: 96px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--primary) 0%, var(--primary-hover) 100%);
+    margin-bottom: 24px;
+    color: white;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+}
+
+.support-header h2 {
+    font-size: 32px;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin: 0 0 12px 0;
+}
+
+.support-subtitle {
+    font-size: 16px;
+    color: var(--text-secondary);
+    margin: 0 0 16px 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+}
+
+.heart-icon {
+    color: #e74c3c;
+    animation: heartbeat 1.5s ease-in-out infinite;
+}
+
+@keyframes heartbeat {
+
+    0%,
+    100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.1);
+    }
+}
+
+.support-description {
+    font-size: 15px;
+    color: var(--text-secondary);
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: 1.6;
+}
+
+.qr-codes-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 32px;
+    margin-bottom: 40px;
+    flex-wrap: wrap;
+}
+
+.qr-code-card {
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-color);
+    border-radius: 16px;
+    padding: 32px;
+    text-align: center;
+    transition: all 0.3s ease;
+    min-width: 280px;
+}
+
+.qr-code-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.12);
+    border-color: var(--primary);
+}
+
+.qr-code-header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    margin-bottom: 24px;
+}
+
+.bank-logo {
+    width: 40px;
+    height: 40px;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.bank-logo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.qr-code-header h3 {
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin: 0;
+}
+
+.qr-code-wrapper {
+    background: white;
+    padding: 16px;
+    border-radius: 12px;
+    display: inline-block;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.qr-code-wrapper canvas,
+.qr-code-wrapper img {
+    display: block;
+    max-width: 200px;
+    max-height: 200px;
+}
+
+.account-name {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin: 0 0 8px 0;
+}
+
+.scan-instruction {
+    font-size: 13px;
+    color: var(--text-secondary);
+    margin: 0;
+}
+
+.qr-code-divider {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-tertiary);
+    font-size: 14px;
+    font-weight: 600;
+    position: relative;
+    width: 40px;
+    height: 40px;
+    background: var(--bg-secondary);
+    border: 2px solid var(--border-color);
+    border-radius: 50%;
+}
+
+.support-footer {
+    text-align: center;
+    padding-top: 32px;
+    border-top: 1px solid var(--border-color);
+}
+
+.support-footer p {
+    font-size: 16px;
+    color: var(--text-secondary);
+    margin: 0;
+}
+
+@media (max-width: 768px) {
+    .support-content {
+        padding: 32px 24px;
+    }
+
+    .support-header h2 {
+        font-size: 24px;
+    }
+
+    .qr-codes-container {
+        flex-direction: column;
+        gap: 24px;
+    }
+
+    .qr-code-divider {
+        transform: rotate(90deg);
+        width: 40px;
+        height: 40px;
+    }
+
+    .qr-code-card {
+        width: 100%;
+        min-width: auto;
+    }
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

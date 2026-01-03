@@ -1,0 +1,430 @@
+.calendar-view {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    background-color: var(--bg-main);
+}
+
+.calendar-grid {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    padding: 24px;
+}
+
+.weekdays-header {
+    display: grid;
+    grid-template-columns: repeat(7, minmax(0, 1fr));
+    border-bottom: 1px solid var(--border);
+    background: var(--bg-surface);
+    border-radius: 8px 8px 0 0;
+}
+
+.weekday {
+    padding: 12px;
+    text-align: center;
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--text-tertiary);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.days-grid {
+    display: grid;
+    grid-template-columns: repeat(7, minmax(0, 1fr));
+    grid-auto-rows: 1fr;
+    flex: 1;
+    border-left: 1px solid var(--border);
+    border-top: 1px solid var(--border);
+}
+
+.calendar-day {
+    min-height: 100px;
+    padding: 8px;
+    border-right: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    background: var(--bg-main);
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    transition: all 0.2s ease;
+}
+
+.calendar-day.other-month {
+    background: var(--bg-side);
+    color: var(--text-tertiary);
+}
+
+.calendar-day.today {
+    background: var(--bg-active);
+}
+
+.calendar-day.drag-over {
+    background: var(--bg-hover);
+    box-shadow: inset 0 0 0 2px var(--primary);
+}
+
+.day-number {
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--text-secondary);
+}
+
+.calendar-day.today .day-number {
+    color: var(--primary);
+}
+
+.day-tasks {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    flex: 1;
+}
+
+.calendar-task-tag {
+    font-size: 11px;
+    padding: 4px 8px;
+    border-radius: 4px;
+    background: var(--bg-surface);
+    border: 1px solid var(--border);
+    color: var(--text-main);
+    font-weight: 500;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    cursor: grab;
+    transition: var(--transition);
+}
+
+.calendar-task-tag:hover {
+    box-shadow: var(--shadow-sm);
+    border-color: var(--border-strong);
+    background: var(--bg-hover);
+}
+
+.calendar-task-tag.dragging {
+    cursor: grabbing;
+    opacity: 0.5;
+}
+
+.calendar-task-tag.to-do {
+    border-left: 3px solid var(--info);
+}
+
+.calendar-task-tag.in-progress {
+    border-left: 3px solid var(--warning);
+}
+
+.calendar-task-tag.completed {
+    border-left: 3px solid var(--success);
+}
+
+.calendar-nav {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.current-month {
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--text-main);
+    min-width: 200px;
+    text-align: center;
+}
+
+.nav-btn {
+    background: transparent;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-secondary);
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.nav-btn:hover {
+    background: var(--bg-hover);
+    color: var(--text-main);
+}
+
+.btn-today {
+    background: var(--bg-surface);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 6px 12px;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--text-secondary);
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.btn-today:hover {
+    background: var(--bg-hover);
+    color: var(--text-main);
+}
+
+/* Mode Switcher */
+.calendar-mode-switcher {
+    display: flex;
+    background: var(--bg-surface);
+    padding: 2px;
+    border-radius: 8px;
+    gap: 2px;
+    border: 1px solid var(--border);
+}
+
+.mode-btn {
+    padding: 4px 12px;
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--text-secondary);
+    background: transparent;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.mode-btn:hover {
+    color: var(--text-main);
+    background: var(--bg-hover);
+}
+
+.mode-btn.active {
+    background: var(--bg-active);
+    color: var(--primary);
+    box-shadow: var(--shadow-sm);
+}
+
+/* Time Grid Styles */
+.time-grid-container {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    background: var(--bg-main);
+}
+
+.time-grid-header {
+    display: flex;
+    border-bottom: 1px solid var(--border);
+    background: var(--bg-surface);
+    position: sticky;
+    top: 0;
+    z-index: 20;
+}
+
+.all-day-row {
+    display: flex;
+    border-bottom: 1px solid var(--border);
+    min-height: 48px;
+    background: var(--bg-surface);
+    position: sticky;
+    top: 60px;
+    /* Below header */
+    z-index: 15;
+}
+
+.all-day-label {
+    font-size: 10px;
+    text-transform: uppercase;
+    font-weight: 700;
+    color: var(--text-tertiary);
+    letter-spacing: 0.05em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+}
+
+.all-day-column {
+    flex: 1;
+    min-width: 0;
+    min-height: 48px;
+    padding: 6px;
+    border-right: 1px solid var(--border-light);
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.all-day-column:last-child {
+    border-right: none;
+}
+
+.all-day-column .calendar-task-tag {
+    height: auto;
+    padding: 4px 10px;
+    margin: 0;
+    font-size: 11px;
+}
+
+.time-gutter {
+    width: 60px;
+    flex-shrink: 0;
+    border-right: 1px solid var(--border);
+}
+
+.time-column-header {
+    flex: 1;
+    min-width: 0;
+    padding: 12px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2px;
+    border-right: 1px solid var(--border);
+}
+
+.time-column-header.today {
+    background: var(--bg-active);
+}
+
+.time-column-header .day-name {
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--text-secondary);
+    text-transform: uppercase;
+}
+
+.time-column-header .day-number {
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--text-main);
+}
+
+.time-column-header.today .day-number {
+    color: var(--primary);
+}
+
+.time-grid-body {
+    flex: 1;
+    display: flex;
+    overflow-y: auto;
+    position: relative;
+    background: var(--bg-main);
+}
+
+.time-label {
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 11px;
+    color: var(--text-secondary);
+    font-weight: 500;
+}
+
+.time-columns {
+    flex: 1;
+    position: relative;
+    display: flex;
+}
+
+.time-slot-row {
+    position: absolute;
+    left: 0;
+    right: 0;
+    height: 60px;
+    border-bottom: 1px solid var(--border-light);
+}
+
+.time-columns .time-slot-row {
+    width: 100%;
+}
+
+.time-column {
+    flex: 1;
+    min-width: 0;
+    height: 1440px;
+    /* 24 * 60px */
+    border-right: 1px solid var(--border);
+    position: relative;
+}
+
+.time-slot {
+    height: 60px;
+    border-bottom: 1px solid var(--border-light);
+    box-sizing: border-box;
+    transition: background 0.2s;
+}
+
+.time-slot:hover {
+    background: var(--bg-hover);
+}
+
+.time-slot.drag-over {
+    background: var(--bg-active);
+}
+
+.day-tasks-absolute {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    pointer-events: none;
+}
+
+.draggable-task-wrapper {
+    pointer-events: auto;
+    padding: 0 4px;
+    display: flex;
+    flex-direction: column;
+}
+
+.draggable-task-wrapper .calendar-task-tag {
+    height: 100%;
+    margin: 0;
+    background: var(--bg-surface);
+}
+
+.resize-handle-bottom {
+    position: absolute;
+    bottom: -2px;
+    left: 4px;
+    right: 4px;
+    height: 6px;
+    cursor: ns-resize;
+    z-index: 10;
+    transition: background 0.2s;
+    border-radius: 2px;
+}
+
+.draggable-task-wrapper:hover .resize-handle-bottom {
+    background: rgba(99, 102, 241, 0.3);
+    /* using generic primary-ish transparent */
+}
+
+.resize-handle-bottom:hover {
+    background: var(--primary) !important;
+}
+
+/* Current Time Indicator */
+.current-time-line {
+    position: absolute;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: var(--error);
+    z-index: 10;
+    pointer-events: none;
+}
+
+.current-time-dot {
+    position: absolute;
+    left: -4px;
+    top: -3px;
+    width: 8px;
+    height: 8px;
+    background: var(--error);
+    border-radius: 50%;
+}

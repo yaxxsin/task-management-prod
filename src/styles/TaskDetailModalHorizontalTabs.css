@@ -1,0 +1,47 @@
+/* Horizontal Tabs for Sidebar */
+.sidebar-tabs-horizontal {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    padding: 8px 8px 0 8px;
+    border-bottom: 1px solid var(--border);
+    background: var(--bg-surface);
+}
+
+.horizontal-tab {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 8px 12px;
+    border: none;
+    background: transparent;
+    color: var(--text-secondary);
+    cursor: pointer;
+    border-radius: 6px 6px 0 0;
+    transition: all 0.2s;
+    font-size: 12px;
+    font-weight: 600;
+    position: relative;
+}
+
+.horizontal-tab:hover {
+    background: var(--bg-hover);
+    color: var(--text-main);
+}
+
+.horizontal-tab.active {
+    background: var(--bg-surface);
+    color: var(--primary);
+    border-bottom: 2px solid var(--primary);
+}
+
+.horizontal-tab .tab-icon-wrapper {
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.horizontal-tab .tab-label {
+    font-size: 12px;
+    font-weight: 600;
+}

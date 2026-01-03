@@ -1,0 +1,50 @@
+.create-doc-modal {
+    width: 400px !important;
+    padding: 24px !important;
+}
+
+.create-doc-modal .modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 24px;
+}
+
+.create-doc-modal h3 {
+    margin: 0;
+    font-size: 18px;
+    font-weight: 700;
+    color: #1e293b;
+}
+
+.create-doc-modal .form-group {
+    margin-bottom: 24px;
+}
+
+.create-doc-modal label {
+    display: block;
+    font-size: 13px;
+    font-weight: 600;
+    color: #64748b;
+    margin-bottom: 8px;
+}
+
+.create-doc-modal input {
+    width: 100%;
+    padding: 10px 12px;
+    border: 1px solid #e2e8f0;
+    border-radius: 6px;
+    font-size: 14px;
+    outline: none;
+    transition: border-color 0.2s;
+}
+
+.create-doc-modal input:focus {
+    border-color: #3b82f6;
+}
+
+.create-doc-modal .modal-footer {
+    display: flex;
+    justify-content: flex-end;
+    gap: 12px;
+}

@@ -1,0 +1,125 @@
+.task-options-menu {
+    width: 280px;
+    background: var(--bg-surface);
+    border-radius: 8px;
+    box-shadow: var(--shadow-xl);
+    border: 1px solid var(--border);
+    position: absolute;
+    z-index: 5000;
+    color: var(--text-main);
+    font-family: inherit;
+    overflow: hidden;
+}
+
+.menu-header-row {
+    display: flex;
+    background: var(--bg-hover);
+    border-bottom: 1px solid var(--border);
+}
+
+.menu-header-row button {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 4px;
+    background: transparent;
+    border: none;
+    color: var(--text-secondary);
+    font-size: 11px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.menu-header-row button:hover {
+    color: var(--text-main);
+    background: var(--bg-active);
+}
+
+.menu-divider-v {
+    width: 1px;
+    background: var(--border);
+}
+
+.menu-main-content {
+    padding: 4px 0;
+}
+
+.menu-item {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    padding: 10px 16px;
+    background: transparent;
+    border: none;
+    color: var(--text-main);
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background 0.2s;
+    text-align: left;
+}
+
+.menu-item:hover {
+    background: var(--bg-hover);
+}
+
+.menu-item .menu-icon {
+    color: var(--text-secondary);
+    margin-right: 12px;
+    flex-shrink: 0;
+}
+
+.menu-item .menu-label {
+    flex: 1;
+    color: var(--text-main);
+}
+
+/* Layout for items WITHOUT chevron: ensured left alignment */
+.menu-item:not(.has-chevron) .menu-label {
+    text-align: left;
+}
+
+.menu-item .chevron-right {
+    margin-left: 8px;
+    color: var(--text-tertiary);
+}
+
+.menu-item.danger .menu-label {
+    color: var(--error);
+}
+
+.menu-divider-h {
+    height: 1px;
+    background: var(--border);
+    margin: 4px 0;
+}
+
+.menu-footer {
+    padding: 12px;
+}
+
+.btn-sharing {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    background: var(--primary);
+    color: white;
+    border: none;
+    padding: 12px;
+    border-radius: 8px;
+    font-size: 15px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.btn-sharing:hover {
+    background: var(--primary-hover);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(99, 102, 241, 0.3);
+}

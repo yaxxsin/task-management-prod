@@ -1,0 +1,1190 @@
+.modal-content.task-modal {
+    width: 100%;
+    max-width: 800px;
+    animation: modalAppear 0.2s ease-out;
+    /* Keeps its own animation if preferred, though base is similar */
+}
+
+/* Header Tabs */
+.task-modal-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 16px;
+    border-bottom: 1px solid var(--border);
+    background: var(--bg-main);
+    height: 48px;
+}
+
+.task-tabs {
+    display: flex;
+    gap: 24px;
+    height: 100%;
+}
+
+.task-tab {
+    display: flex;
+    align-items: center;
+    height: 100%;
+    background: none;
+    border: none;
+    color: var(--text-secondary);
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    position: relative;
+    padding: 0 4px;
+}
+
+.task-tab:hover {
+    color: var(--text-main);
+}
+
+.task-tab.active {
+    color: var(--primary);
+    font-weight: 600;
+}
+
+.task-tab.active::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: var(--primary);
+    border-radius: 2px 2px 0 0;
+}
+
+.header-controls {
+    display: flex;
+    gap: 8px;
+}
+
+.header-icon-btn {
+    background: none;
+    border: none;
+    color: var(--text-secondary);
+    padding: 6px;
+    border-radius: 4px;
+    cursor: pointer;
+    display: flex;
+}
+
+.header-icon-btn:hover {
+    background: var(--bg-hover);
+    color: var(--text-main);
+}
+
+/* Main Form Area (Shared Wrapper) */
+.task-form {
+    padding: 0 24px 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    flex: 1;
+    /* allow it to grow */
+    overflow-y: auto;
+    /* allow scroll if needed */
+}
+
+/* Sub-Header Toolbar (For Task View Only) */
+.task-toolbar {
+    padding: 12px 24px;
+    display: flex;
+    gap: 12px;
+}
+
+.toolbar-btn {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 12px;
+    background: var(--bg-main);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    color: var(--text-secondary);
+    font-size: 13px;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+.toolbar-btn:hover {
+    background: var(--bg-hover);
+    color: var(--text-main);
+}
+
+/* Shared Context Dropdown (For Doc, Chat, Whiteboard...) */
+.context-dropdown {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 12px;
+    background: var(--bg-main);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    color: var(--text-secondary);
+    font-size: 13px;
+    font-weight: 500;
+    width: fit-content;
+    margin-bottom: 8px;
+    cursor: pointer;
+    margin-top: 24px;
+    /* Spacing from header if no toolbar */
+    margin-left: 24px;
+}
+
+.context-dropdown:hover {
+    background: var(--bg-hover);
+    color: var(--text-main);
+}
+
+/* Inputs */
+.task-name-input {
+    width: 100%;
+    font-size: 22px;
+    font-weight: 600;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 12px 16px;
+    outline: none;
+    color: var(--text-main);
+    background: var(--bg-main);
+    transition: all 0.2s;
+}
+
+.task-name-input:focus {
+    border-color: var(--border-strong);
+}
+
+.task-name-input::placeholder {
+    color: var(--text-tertiary);
+}
+
+/* Doc View Specifics */
+.doc-options {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 8px;
+}
+
+.doc-option-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: var(--text-tertiary);
+    font-size: 14px;
+    cursor: pointer;
+    transition: color 0.2s;
+    padding: 4px 0;
+}
+
+.doc-option-row:hover {
+    color: var(--text-main);
+}
+
+.description-section {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.description-placeholder {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--text-tertiary);
+    font-size: 14px;
+    padding: 8px 0;
+    cursor: text;
+}
+
+.task-desc-input {
+    width: 100%;
+    min-height: 80px;
+    border: none;
+    outline: none;
+    resize: none;
+    font-size: 14px;
+    color: var(--text-main);
+    font-family: inherit;
+    background: transparent;
+    padding: 0;
+}
+
+.ai-btn {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    color: var(--text-secondary);
+    font-size: 13px;
+    font-weight: 500;
+    cursor: pointer;
+    background: none;
+    border: none;
+    padding: 4px 0;
+    width: fit-content;
+}
+
+.ai-btn:hover {
+    color: var(--primary);
+}
+
+/* Properties Row */
+.task-properties {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 8px;
+}
+
+.prop-btn {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 12px;
+    background: var(--bg-hover);
+    border: 1px solid transparent;
+    border-radius: 6px;
+    color: var(--text-secondary);
+    font-size: 13px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.prop-btn:hover {
+    background: var(--bg-active);
+    color: var(--text-main);
+    border-color: var(--border);
+}
+
+.prop-btn.status-btn {
+    background: var(--border-light);
+    color: var(--text-main);
+    font-weight: 600;
+}
+
+/* Custom Fields / Add New Section */
+.custom-fields-section {
+    margin-top: 16px;
+}
+
+.section-label {
+    font-size: 13px;
+    color: var(--text-secondary);
+    margin-bottom: 12px;
+    font-weight: 500;
+}
+
+.section-label-small {
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--text-tertiary);
+    margin-top: 20px;
+    margin-bottom: 12px;
+}
+
+.add-field-btn {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 8px 12px;
+    background: var(--bg-hover);
+    border: none;
+    border-radius: 6px;
+    color: var(--text-secondary);
+    font-size: 13px;
+    cursor: pointer;
+}
+
+.add-field-btn:hover {
+    background: var(--bg-active);
+    color: var(--text-main);
+}
+
+/* Reminder View Specifics */
+.reminder-controls {
+    display: flex;
+    gap: 12px;
+    margin-top: 16px;
+}
+
+.reminder-pill {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 12px;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    background: var(--bg-main);
+    color: var(--text-secondary);
+    font-size: 13px;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.reminder-pill:hover {
+    background: var(--bg-hover);
+    color: var(--text-main);
+}
+
+.reminder-pill.avatar-pill {
+    background: var(--primary);
+    color: white;
+    border-color: var(--primary);
+}
+
+/* Private Toggle */
+.private-toggle-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    cursor: pointer;
+}
+
+.toggle-switch {
+    width: 36px;
+    height: 20px;
+    background: var(--border-strong);
+    border-radius: 10px;
+    position: relative;
+    transition: background 0.2s;
+}
+
+.toggle-switch.active {
+    background: var(--success);
+}
+
+.toggle-knob {
+    width: 16px;
+    height: 16px;
+    background: white;
+    border-radius: 50%;
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    transition: transform 0.2s;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.toggle-switch.active .toggle-knob {
+    transform: translateX(16px);
+}
+
+.private-label {
+    font-size: 14px;
+    color: var(--text-secondary);
+}
+
+/* Footer */
+/* Custom Fields Dropdown */
+.custom-fields-wrapper {
+    position: relative;
+    width: 100%;
+}
+
+.custom-fields-dropdown {
+    position: absolute;
+    bottom: 100%;
+    /* Show above the button */
+    left: 0;
+    width: 300px;
+    background: var(--bg-surface);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    box-shadow: var(--shadow-xl);
+    z-index: 100;
+    margin-bottom: 8px;
+    display: flex;
+    flex-direction: column;
+    max-height: 400px;
+    animation: fadeIn 0.1s ease-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(5px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.field-search-container {
+    padding: 12px;
+    border-bottom: 1px solid var(--border);
+}
+
+.field-search-input {
+    width: 100%;
+    padding: 8px 12px 8px 32px;
+    /* Space for icon */
+    border: 1px solid var(--border-strong);
+    border-radius: 6px;
+    outline: none;
+    font-size: 14px;
+    color: var(--text-main);
+    background: var(--bg-main);
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="%2394a3b8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>');
+    background-repeat: no-repeat;
+    background-position: 10px center;
+    transition: all 0.2s;
+}
+
+.field-search-input:focus {
+    border-color: var(--primary);
+    box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.1);
+}
+
+.field-list {
+    overflow-y: auto;
+    padding: 4px 0;
+    flex: 1;
+}
+
+.field-option {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 8px 16px;
+    cursor: pointer;
+    transition: background 0.1s;
+    color: var(--text-main);
+    font-size: 14px;
+}
+
+.field-option:hover {
+    background: var(--bg-hover);
+}
+
+.field-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--primary);
+    /* Adjust colors per type later if simplified */
+}
+
+/* Footer overrides */
+.task-modal-footer {
+    margin-top: auto;
+    padding: 16px 24px;
+    border-top: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: var(--bg-surface);
+}
+
+.task-modal-footer.simple-footer {
+    background: var(--bg-main);
+    border-top: none;
+}
+
+.footer-left {
+    display: flex;
+    gap: 12px;
+}
+
+.footer-btn {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 8px 12px;
+    background: var(--bg-main);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    color: var(--text-secondary);
+    font-size: 13px;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+.footer-btn:hover {
+    border-color: var(--border-strong);
+    color: var(--text-main);
+}
+
+.footer-right {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.icon-action {
+    color: var(--text-secondary);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 13px;
+}
+
+.icon-action:hover {
+    color: var(--text-main);
+}
+
+.create-btn-group {
+    display: flex;
+    align-items: stretch;
+}
+
+.btn-create-main {
+    background: var(--primary);
+    color: white;
+    border: none;
+    padding: 8px 20px;
+    border-radius: 6px 0 0 6px;
+    font-weight: 600;
+    font-size: 14px;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.btn-create-main:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+}
+
+.btn-create-main:hover:not(:disabled) {
+    background: var(--primary-hover);
+}
+
+.btn-create-split {
+    background: var(--primary);
+    color: white;
+    border: none;
+    border-left: 1px solid rgba(255, 255, 255, 0.2);
+    padding: 0 8px;
+    border-radius: 0 6px 6px 0;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+}
+
+.btn-create-split:hover {
+    background: var(--primary-hover);
+}
+
+/* AI Writing Popup */
+.ai-popup {
+    position: absolute;
+    top: 130px;
+    /* Adjust based on description field position */
+    left: 24px;
+    width: 400px;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15), 0 0 0 1px rgba(0, 0, 0, 0.05);
+    z-index: 1000;
+    padding: 24px;
+    animation: slideUpFade 0.2s ease-out;
+    border: 1px solid var(--border-light);
+}
+
+@keyframes slideUpFade {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.ai-header {
+    margin-bottom: 20px;
+}
+
+.ai-icon-large {
+    margin-bottom: 12px;
+    display: inline-block;
+}
+
+.ai-title {
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--text-main);
+    margin-bottom: 4px;
+}
+
+.ai-subtitle {
+    font-size: 13px;
+    color: var(--text-tertiary);
+}
+
+.ai-input-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 8px 12px;
+    background: white;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.02);
+    margin-bottom: 12px;
+}
+
+.ai-input {
+    flex: 1;
+    border: none;
+    outline: none;
+    font-size: 14px;
+    color: var(--text-main);
+}
+
+.ai-input::placeholder {
+    color: var(--text-tertiary);
+}
+
+.ai-input-actions {
+    display: flex;
+    gap: 8px;
+    color: var(--text-tertiary);
+}
+
+.ai-action-list {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    margin-bottom: 20px;
+}
+
+.ai-action-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 8px 12px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 14px;
+    color: var(--text-main);
+    transition: background 0.1s;
+}
+
+.ai-action-item:hover {
+    background: var(--bg-hover);
+}
+
+.ai-action-item .enter-icon {
+    margin-left: auto;
+    opacity: 0;
+    transition: opacity 0.1s;
+}
+
+.ai-action-item:hover .enter-icon {
+    opacity: 1;
+}
+
+.ai-footer {
+    display: flex;
+    gap: 8px;
+    border-top: 1px solid var(--border-light);
+    padding-top: 16px;
+}
+
+.ai-pill {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 12px;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    font-size: 12px;
+    color: var(--text-secondary);
+    cursor: pointer;
+    background: white;
+}
+
+.ai-pill:hover {
+    background: var(--bg-hover);
+    color: var(--text-main);
+}
+
+/* AI Popup - Response View */
+.ai-close-btn {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    cursor: pointer;
+    color: var(--text-tertiary);
+    transition: color 0.2s;
+    transition: color 0.2s;
+}
+
+.ai-response-text {
+    font-size: 14px;
+    line-height: 1.6;
+    color: var(--text-main);
+    background: var(--bg-secondary);
+    padding: 12px;
+    border-radius: 8px;
+    margin-bottom: 12px;
+    white-space: pre-wrap;
+    /* Preserves normal whitespace */
+}
+
+.ai-response-text p {
+    margin-bottom: 8px;
+}
+
+.ai-response-text strong {
+    font-weight: 600;
+    color: var(--text-heading);
+}
+
+.ai-close-btn:hover {
+    color: var(--text-main);
+}
+
+.ai-response-text {
+    font-size: 14px;
+    line-height: 1.6;
+    color: var(--text-secondary);
+    margin-bottom: 16px;
+}
+
+.ai-feedback-row {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 16px;
+}
+
+.feedback-btn {
+    color: var(--text-tertiary);
+    cursor: pointer;
+    background: none;
+    border: none;
+    padding: 0;
+    transition: color 0.2s;
+}
+
+
+/* Slash Menu */
+.slash-menu {
+    position: absolute;
+    top: 48px;
+    left: 20px;
+    width: 320px;
+    max-height: 380px;
+    /* background: white;  Assuming var(--bg-surface) or similar is better for dark mode, but sticking to white/light for now based on image */
+    background: var(--bg-surface, white);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    z-index: 2000;
+    overflow-y: auto;
+    padding: 6px 0;
+}
+
+.slash-category {
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--text-tertiary);
+    padding: 10px 16px 6px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.slash-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 8px 16px;
+    cursor: pointer;
+    font-size: 14px;
+    color: var(--text-main);
+    transition: background 0.1s;
+}
+
+.slash-item:hover,
+.slash-item.selected {
+    background: var(--bg-hover);
+}
+
+.slash-item-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 22px;
+    height: 22px;
+    border-radius: 4px;
+    border: 1px solid var(--border);
+    color: var(--text-secondary);
+    background: var(--bg-surface, white);
+}
+
+.ai-result-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    margin-top: 12px;
+}
+
+.action-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 8px 12px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 14px;
+    color: var(--text-main);
+    transition: background 0.1s;
+}
+
+.action-row:hover {
+    background: var(--bg-hover);
+}
+
+.action-row.primary-action {
+    background: var(--bg-hover);
+    /* Light grey bg for Insert below */
+    font-weight: 500;
+}
+
+.action-row.primary-action:hover {
+    background: var(--bg-active);
+}
+
+/* Title Suggestions */
+.title-suggestions {
+    position: absolute;
+    top: 60px;
+    left: 0;
+    right: 0;
+    background: var(--bg-surface);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    z-index: 1500;
+    overflow: hidden;
+    animation: slideDown 0.2s ease-out;
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-8px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.suggestions-header {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 14px;
+    background: var(--bg-hover);
+    border-bottom: 1px solid var(--border);
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--text-secondary);
+}
+
+.suggestions-actions-header {
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.btn-refresh-titles,
+.btn-close-suggestions {
+    background: transparent;
+    border: none;
+    color: var(--text-tertiary);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 4px;
+    border-radius: 4px;
+    transition: all 0.2s;
+}
+
+.btn-refresh-titles:hover,
+.btn-close-suggestions:hover {
+    color: var(--primary);
+    background: var(--bg-active);
+}
+
+.btn-refresh-titles:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.suggestions-loading {
+    margin-left: auto;
+    color: var(--text-tertiary);
+    animation: pulse 1.5s ease-in-out infinite;
+}
+
+@keyframes pulse {
+
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0.5;
+    }
+}
+
+.suggestions-list {
+    padding: 4px 0;
+}
+
+.suggestion-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 14px;
+    cursor: pointer;
+    transition: background 0.1s;
+    gap: 12px;
+}
+
+.suggestion-item:hover {
+    background: var(--bg-hover);
+}
+
+.suggestion-text {
+    flex: 1;
+    font-size: 14px;
+    color: var(--text-main);
+    font-weight: 500;
+}
+
+.suggestion-icon {
+    color: var(--text-tertiary);
+    opacity: 0;
+    transition: opacity 0.2s;
+}
+
+.suggestion-item:hover .suggestion-icon {
+    opacity: 1;
+}
+
+/* Property Dropdowns */
+.dropdown-container {
+    position: relative;
+}
+
+.property-dropdown {
+    position: absolute;
+    top: calc(100% + 4px);
+    left: 0;
+    width: 240px;
+    background: var(--bg-surface);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    box-shadow: var(--shadow-xl);
+    z-index: 1000;
+    padding: 6px 0;
+    animation: dropdownSlideIn 0.15s ease-out;
+}
+
+@keyframes dropdownSlideIn {
+    from {
+        opacity: 0;
+        transform: translateY(-4px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.dropdown-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 16px;
+    font-size: 14px;
+    color: var(--text-main);
+    cursor: pointer;
+    transition: background 0.1s;
+    user-select: none;
+}
+
+.dropdown-item:hover {
+    background: var(--bg-hover);
+}
+
+.dropdown-item.active {
+    background: var(--bg-hover);
+    color: var(--primary);
+    font-weight: 500;
+}
+
+.dropdown-item .check-icon {
+    margin-left: auto;
+    color: var(--primary);
+}
+
+.dropdown-section {
+    padding: 10px 16px 6px;
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--text-tertiary);
+    text-transform: uppercase;
+}
+
+.list-item-nested {
+    padding-left: 40px;
+}
+
+.dropdown-header-type {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 16px;
+    font-size: 14px;
+    font-weight: 600;
+    border-bottom: 1px solid var(--border);
+    margin-bottom: 6px;
+}
+
+.edit-link {
+    background: none;
+    border: none;
+    color: var(--primary);
+    font-size: 14px;
+    cursor: pointer;
+    padding: 0;
+}
+
+.default-label {
+    color: var(--text-tertiary);
+    font-weight: 400;
+    margin-left: 4px;
+}
+
+/* Assignee */
+.user-avatar-mini {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: var(--primary);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 10px;
+    font-weight: 700;
+}
+
+.dropdown-divider {
+    height: 1px;
+    background: var(--border);
+    margin: 4px 0;
+}
+
+/* Date Input */
+.date-btn-group {
+    position: relative;
+    overflow: hidden;
+}
+
+.date-input-hidden,
+.time-input-hidden {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    cursor: pointer;
+    z-index: 2;
+}
+
+.date-display {
+    pointer-events: none;
+}
+
+/* Priority */
+.priority-icon-urgent {
+    color: #ef4444;
+}
+
+.priority-icon-high {
+    color: #f97316;
+}
+
+.priority-icon-medium {
+    color: #eab308;
+}
+
+.priority-icon-low {
+    color: #64748b;
+}
+
+.priority-item-urgent {
+    color: #ef4444;
+}
+
+.priority-item-high {
+    color: #f97316;
+}
+
+.priority-item-medium {
+    color: #eab308;
+}
+
+.priority-item-low {
+    color: #64748b;
+}
+
+/* Tags */
+.tag-item {
+    gap: 8px;
+}
+
+.tag-color-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+}
+
+.dropdown-header-sm {
+    padding: 8px 16px;
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--text-tertiary);
+}
+
+.dropdown-empty {
+    padding: 16px;
+    font-size: 13px;
+    color: var(--text-tertiary);
+    text-align: center;
+}
+
+/* Fix for Create Task Modal horizontal layout */
+.task-properties .dropdown-container {
+    width: fit-content;
+    display: inline-block;
+}
+
+.task-properties .prop-btn {
+    width: fit-content;
+    white-space: nowrap;
+}
+
+.task-properties .status-btn select {
+    cursor: pointer;
+}
