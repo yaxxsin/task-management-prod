@@ -6,24 +6,51 @@ import jwt from 'jsonwebtoken';
 import { randomUUID } from 'crypto';
 import { createServer } from 'http';
 import { Server } from 'socket.io';
+import 'dotenv/config';
 
+// ================== PRODUCTION CONFIG ==================
 const app = express();
-const port = 9008;
+const port = process.env.PORT || 9008;
 const httpServer = createServer(app);
+
+// JWT Secret - REQUIRED for production security
+const JWT_SECRET = process.env.JWT_SECRET;
+if (!JWT_SECRET) {
+    console.error('\n❌ FATAL ERROR: JWT_SECRET environment variable is required!');
+    console.error('   Please add JWT_SECRET to your .env file.');
+    console.error('   Example: JWT_SECRET=your-super-secret-key-min-32-chars\n');
+    process.exit(1);
+}
+
+// CORS Configuration - Restrict origins for production
+const ALLOWED_ORIGINS = process.env.ALLOWED_ORIGINS
+    ? process.env.ALLOWED_ORIGINS.split(',').map(o => o.trim())
+    : null; // null = allow all (dev mode)
+
+// Frontend URL for reset password links
+const FRONTEND_URL = process.env.FRONTEND_URL || 'http://localhost:5173';
+
+const corsOptions = {
+    origin: ALLOWED_ORIGINS || true,
+    methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+    credentials: true
+};
+
 const io = new Server(httpServer, {
     path: '/socket.io/',
-    cors: {
-        origin: true, // Allow all origins for development - in production, specify exact origins
-        methods: ["GET", "POST"],
-        credentials: true
-    },
+    cors: corsOptions,
     pingTimeout: 60000,
     pingInterval: 25000
 });
-const JWT_SECRET = process.env.JWT_SECRET || 'your-secret-key-change-it';
 
-app.use(cors());
+app.use(cors(corsOptions));
 app.use(express.json({ limit: '50mb' }));
+
+console.log('\n🔧 Server Configuration:');
+console.log(`   - Port: ${port}`);
+console.log(`   - CORS Origins: ${ALLOWED_ORIGINS ? ALLOWED_ORIGINS.join(', ') : 'ALL (dev mode)'}`);
+console.log(`   - Frontend URL: ${FRONTEND_URL}`);
+console.log(`   - JWT Secret: [CONFIGURED]\n`);
 
 // --- WebSocket Logic ---
 io.on('connection', (socket) => {
@@ -225,8 +252,11 @@ app.post('/api/auth/forgot-password', async (req, res) => {
         // Create new reset token
         await dbHandler.createPasswordResetToken(user.id, resetToken, expiresAt);
 
-        // In production, send email here. For demo, log the reset link
-        const resetLink = `http://localhost:5173/reset-password?token=${resetToken}`;
+        // Generate reset link using configured frontend URL
+        const resetLink = `${FRONTEND_URL}/reset-password?token=${resetToken}`;
+
+        // In production, send email here
+        // For now, log to console (check server logs)
         console.log(`\n========================================`);
         console.log(`PASSWORD RESET LINK for ${email}:`);
         console.log(resetLink);
@@ -235,9 +265,8 @@ app.post('/api/auth/forgot-password', async (req, res) => {
 
         res.json({
             success: true,
-            message: 'If your email exists, a reset link has been sent.',
-            // For development only - remove in production!
-            _dev_reset_link: resetLink
+            message: 'If your email exists, a reset link has been sent.'
+            // NOTE: Reset link is logged to server console only
         });
 
     } catch (error) {

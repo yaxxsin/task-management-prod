@@ -17,6 +17,14 @@ export class DatabaseHandler {
                 driver: sqlite3.Database
             });
 
+            // Enable WAL mode for better concurrent read/write performance
+            // This is critical for multi-user access (10+ users)
+            await this.db.exec('PRAGMA journal_mode = WAL;');
+            await this.db.exec('PRAGMA busy_timeout = 5000;'); // Wait 5s if database is locked
+            await this.db.exec('PRAGMA synchronous = NORMAL;'); // Good balance of safety and speed
+
+            console.log('Database optimizations applied: WAL mode enabled');
+
             // Standardize schema with separate metadata if needed, 
             // but for Zustand we primarily need Key-Value.
             // unique key constraint, and timestamps for syncing
